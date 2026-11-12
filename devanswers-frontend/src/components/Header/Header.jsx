@@ -10,11 +10,11 @@ import './Header.css';
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.user);
   const isAuthenticated = !!userInfo;
   const { isDarkMode } = useSelector((state) => state.theme);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  //Your Code Here
   
   const handleCloseMobileMenu = () => setShowMobileMenu(false);
   const handleShowMobileMenu = () => setShowMobileMenu(true);
@@ -28,7 +28,7 @@ const Header = () => {
   }
 
   const handleLogout = () => {
-      //Your Code Here
+    dispatch(logoutUser());
     navigate('/');
   }
 

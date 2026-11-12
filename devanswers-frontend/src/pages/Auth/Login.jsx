@@ -10,9 +10,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //Your Code Here
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {
     userInfo,
     login: { status: loginStatus, error: loginError },
@@ -21,7 +20,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //Your Code Here
+    await dispatch(loginUser({ email, password }));
   };
 
   useEffect(() => {
